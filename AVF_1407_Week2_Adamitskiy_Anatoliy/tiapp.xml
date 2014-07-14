@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">hT6O08KNWul0pwmrKq1Afi3bzF3Qw4k3</property>
+    <property name="acs-oauth-key-production" type="string">Dvzc6tFd9T2EJsRY6t4kf0qqQHVppyiJ</property>
+    <property name="acs-api-key-production" type="string">3cF6TlVK66KBehNymAsbQv3MKazNMkzP</property>
+    <property name="acs-oauth-secret-development" type="string">OiwkwonIS3Z4JhgUhEccOT0tKUkwh5c9</property>
+    <property name="acs-oauth-key-development" type="string">N6KHuCo6noij2Gme6qmErJnLXZNqHxIZ</property>
+    <property name="acs-api-key-development" type="string">WwoY845MZZZeb0NJUZE2ZLEGkFBzYxKM</property>
+    <id>com.adamitskiy</id>
+    <name>AVF_1407_Adamitskiy_Anatoliy</name>
+    <version>1.0</version>
+    <publisher>Anatoliy</publisher>
+    <url>http://</url>
+    <description>not specified</description>
+    <copyright>2014 by Anatoliy</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>eb3378f4-a405-49f2-b54f-5a589f453987</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">false</target>
+        <target device="tizen">false</target>
+    </deployment-targets>
+    <sdk-version>3.2.3.GA</sdk-version>
+</ti:app>
