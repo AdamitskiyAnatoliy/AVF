@@ -9,6 +9,8 @@ var platform = Ti.Platform.osname;
 
 var ui = require('ui');
 
+ui.navBar.add(ui.cameraButton);
+ui.navBar.add(ui.title);
 ui.mainWindow.add(ui.navBar);
 ui.mainWindow.add(ui.scrollView);
 ui.mainWindow.open();

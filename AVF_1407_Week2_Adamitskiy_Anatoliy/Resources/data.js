@@ -19,13 +19,10 @@ exports.getData = function() {
 
 		for (i = 0, j = json.shots.length; i < j; i++) {
 				localData.insert(json.shots[i].image_url, json.shots[i].player.avatar_url, json.shots[i].title, json.shots[i].player.name, json.shots[i].player.likes_count, json.shots[i].views_count, json.shots[i].player.comments_count);
-			//console.log("remoteResponse: " + json.shots[i].image_url);
 			}
-			
+
 			localData.getData();
 			cloudData.loginAppUser(json);
-			
-			//console.log(json.shots[i].image_url);
 		};
 
 		//Runs if any errors occur
@@ -35,7 +32,7 @@ exports.getData = function() {
 			Ti.API.debug("Text: " + this.responseText);
 			Ti.API.debug("Error: " + e.error);
 		};
-	
+
 		//HTTP Client request
 
 		var xhr = Ti.Network.createHTTPClient({
@@ -50,7 +47,7 @@ exports.getData = function() {
 	} else {	//This is run if there is no network connection
 
 		localData.getData();
-		
+
 		alert("Please connect to a Wi-Fi network or cellular data to use this application.");
 
 	}

@@ -44,31 +44,19 @@ exports.getData = function() {
 		dataAv.push(data.avatar);
 
 		console.log(data.image);
-		//ui.populate(dataA, dataAv);
-
-		//var images = [];
-		//images.push(data.image);
-
-		//var avatars = [];
-		//avatars.push(data.avatar);
-		//console.log("images: " + images);
+		
 		posts.next();
-		//ui.image.image = data.image;
-
-		//cloudData.save(data);
-
 	}
 	console.log(dataAv);
 
 	for ( i = 0, j = dataA.length; i < j; i++) {
-		
+
 		var image = Ti.UI.createImageView({
-			backgroundColor : "red",
+			backgroundColor : "white",
 			image : dataA[i],
 			width : windowWidth,
 			height : "250dp",
-			top : "30dp",
-			//children: [picInfoBack]
+			top : "30dp"
 		});
 
 		if (platform === 'android') {
@@ -97,14 +85,9 @@ exports.getData = function() {
 		});
 
 		ui.scrollView.add(picInfoBack);
-		//image.add(picInfoBack);
 		picInfoBack.add(avatarImage);
 
 	}
-
-	//console.log(data);
-	//ui.populate(data);
-
 };
 
 //Function that clears SQLite database
