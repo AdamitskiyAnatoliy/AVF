@@ -1,5 +1,5 @@
 var moreInfo = require('moreInfo');
-var windowWidth = Ti.Platform.displayCaps.platformWidth;
+
 var platform = Ti.Platform.osname;
 
 var mainWindow = Ti.UI.createWindow({
@@ -8,29 +8,29 @@ var mainWindow = Ti.UI.createWindow({
 
 var table = Ti.UI.createTableView({
 	top : 65,
-	backgroundColor : "#fbfce7"
+	backgroundColor : "#8b794f"
 });
 
 var navBar = Ti.UI.createView({
 	top : 0,
 	height : 65,
 	width : windowWidth,
-	backgroundColor : "#ca902c"
+	backgroundColor : "#138e56"
 });
 
 var title = Ti.UI.createLabel({
-	text : "Café Finder",
+	text : "Cafe Finder",
 	font : {
-		fontSize : "22dp",
+		fontSize : "20dp",
 		fontFamily : "Helvetica",
-		fonrtWeight : 'bold'
+		fonrtWeight: 'bold'
 	},
-	color : "#363636",
+	color : "white",
 	bottom : 11
 });
 
 if (platform === 'iphone') {
-	mainWindow.statusBarStyle = Titanium.UI.iPhone.StatusBar.DARK_CONTENT;
+	mainWindow.statusBarStyle = Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT;
 }
 
 exports.backButton = Ti.UI.createLabel({
@@ -40,39 +40,35 @@ exports.backButton = Ti.UI.createLabel({
 		fontSize : "20dp",
 		fontFamily : "Helvetica"
 	},
-	color : "#363636",
+	color : "white",
 	bottom : 11,
 	left : 11
 
 });
 
 var moreInfoWindow = Ti.UI.createWindow({
-	backgroundColor : "#fbfce7"
+	backgroundColor : "#8b794f"
 });
 
 exports.navBar2 = Ti.UI.createView({
 	top : 0,
 	height : 65,
 	width : windowWidth,
-	backgroundColor : "#ca902c"
+	backgroundColor : "#138e56"
 });
 
-var line = Ti.UI.createView({
-	backgroundColor : "#363636",
-	width : windowWidth,
-	height : 1 / 2,
-	top : 445
-});
+exports.addressLabel = Ti.UI.createLabel({
 
-var line2 = Ti.UI.createView({
-	backgroundColor : "#363636",
-	width : windowWidth,
-	height : 1 / 2,
-	top : 495
-});
+	text : "Back",
+	font : {
+		fontSize : "20dp",
+		fontFamily : "Helvetica"
+	},
+	color : "white",
+	bottom : 11,
+	left : 11
 
-moreInfoWindow.add(line2);
-moreInfoWindow.add(line);
+});
 
 exports.populate = function(nameData, cityData, stateData, formattedAddressData, formattedPhoneData, countryData, latData, lngData) {
 
@@ -84,42 +80,18 @@ exports.populate = function(nameData, cityData, stateData, formattedAddressData,
 	for ( i = 0, j = nameData.length; i < j; i++) {
 
 		var tableRow = Ti.UI.createTableViewRow({
-			color : "#363636",
+			title : nameData[i],
+			hasChild : true,
+			color : "#fff",
 			height : 50
 		});
 
-		var mainTitle = Ti.UI.createLabel({
-			text : nameData[i],
-			left : 60,
-			font : {
-				fontSize : "18dp",
-				fontFamily : "Helvetica"
-			},
-			color : "#363636"
-
-		});
-
-		var rowPic = Ti.UI.createImageView({
-			image : "coffeeCup.jpg",
-			height : 40,
-			width : 40,
-			left : 10,
-			borderRadius : 20,
-			borderWidth : 1,
-			borderColor : "#363636"
-		});
-
-		if (platform === "iphone") {
-			tableRow.hasChild = true;
-		}
-		tableRow.add(mainTitle);
-		tableRow.add(rowPic);
 		tableSection.add(tableRow);
 
 	}
-	var num = "(407) 597-0091";
+	
 	for ( i = 0, j = nameData.length; i < j; i++) {
-
+		
 		var address = Ti.UI.createLabel({
 
 			text : formattedAddressData[i],
@@ -127,11 +99,11 @@ exports.populate = function(nameData, cityData, stateData, formattedAddressData,
 				fontSize : "20dp",
 				fontFamily : "Helvetica"
 			},
-			color : "#363636",
-			top : 405
+			color : "white",
+			top: 405
 
-		});
-
+		}); 
+		
 		var city = Ti.UI.createLabel({
 
 			text : cityData[i],
@@ -139,26 +111,26 @@ exports.populate = function(nameData, cityData, stateData, formattedAddressData,
 				fontSize : "20dp",
 				fontFamily : "Helvetica"
 			},
-			color : "#363636",
-			top : 455
+			color : "white",
+			top: 455
 
-		});
-
+		}); 
+		
 		var phone = Ti.UI.createLabel({
-			text : num,
+
+			text : formattedPhoneData[i],
 			font : {
 				fontSize : "20dp",
 				fontFamily : "Helvetica"
 			},
-			color : "#363636",
-			top : 505
-		});
+			color : "white",
+			top: 505
+
+		}); 
+		
+		
 
 	}
-
-	phone.addEventListener("click", function(e) {
-		Titanium.Platform.openURL(num);
-	});
 
 	sections.push(tableSection);
 	table.setData(sections);
@@ -167,6 +139,7 @@ exports.populate = function(nameData, cityData, stateData, formattedAddressData,
 	moreInfoWindow.add(phone);
 
 };
+
 
 table.addEventListener("click", moreInfo.openMoreInfo);
 

@@ -1,3 +1,14 @@
+/*	This is where the SQLite
+ * 	statements are housed
+ */
+
+var windowWidth = Ti.Platform.displayCaps.platformWidth;
+var windowHeight = Ti.Platform.displayCaps.platformHeight;
+var platform = Ti.Platform.osname;
+
+var ui = require('ui');
+//var geo = require('geo');
+
 //Opening my SQLite Database
 
 var db = Titanium.Database.open("database");
@@ -54,10 +65,6 @@ exports.getData1 = function() {
 	
 	if (platform === "iphone") {
 		geo.addMap(latData[0], lngData[0], nameData[0], cityData[0]);
-	}
-	
-	if (platform === "android") {
-		geo.addMap2(latData[0], lngData[0], nameData[0], cityData[0]);
 	}
 
 };
